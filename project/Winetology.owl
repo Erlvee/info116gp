@@ -1,0 +1,252 @@
+@prefix : <http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7> .
+
+<http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7> rdf:type owl:Ontology ;
+                                                                          rdfs:comment "A ontology that describes various products in the domain of Vinmonopolet" .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Alcohol
+:Alcohol rdf:type owl:Class ;
+         rdfs:subClassOf :Content .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#AlcoholFree
+:AlcoholFree rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Beer
+:Beer rdf:type owl:Class ;
+      rdfs:subClassOf :AlcoholFree ,
+                      :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Characteristics
+:Characteristics rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Colour
+:Colour rdf:type owl:Class ;
+        rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#ContainsAlcohol
+:ContainsAlcohol rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Content
+:Content rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Cork
+:Cork rdf:type owl:Class ;
+      rdfs:subClassOf :PackagingAndMarking .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Deliverable
+:Deliverable rdf:type owl:Class ;
+             rdfs:subClassOf :Logistics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#District
+:District rdf:type owl:Class ;
+          rdfs:subClassOf :Location .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Ecological
+:Ecological rdf:type owl:Class ;
+            rdfs:subClassOf :Content .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Fits
+:Fits rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#FlavoredWine
+:FlavoredWine rdf:type owl:Class ;
+              rdfs:subClassOf :AlcoholFree ,
+                              :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#FortifiedWine
+:FortifiedWine rdf:type owl:Class ;
+               rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#FruitWine
+:FruitWine rdf:type owl:Class ;
+           rdfs:subClassOf :AlcoholFree ,
+                           :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Gluten
+:Gluten rdf:type owl:Class ;
+        rdfs:subClassOf :Content .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#HardCider
+:HardCider rdf:type owl:Class ;
+           rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Land
+:Land rdf:type owl:Class ;
+      rdfs:subClassOf :Location .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Liquor
+:Liquor rdf:type owl:Class ;
+        rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Logistics
+:Logistics rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Manufacturer
+:Manufacturer rdf:type owl:Class ;
+              rdfs:subClassOf :Logistics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Mead
+:Mead rdf:type owl:Class ;
+      rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Methode
+:Methode rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#NaturelSparklingWine
+:NaturelSparklingWine rdf:type owl:Class ;
+                      rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Others
+:Others rdf:type owl:Class ;
+        rdfs:subClassOf :AlcoholFree .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Packaging
+:Packaging rdf:type owl:Class ;
+           rdfs:subClassOf :PackagingAndMarking .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#PackagingAndMarking
+:PackagingAndMarking rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Price
+:Price rdf:type owl:Class ;
+       rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Producer
+:Producer rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Rating
+:Rating rdf:type owl:Class ;
+        rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#RawMaterial
+:RawMaterial rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#RedWine
+:RedWine rdf:type owl:Class ;
+         rdfs:subClassOf :AlcoholFree ,
+                         :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#RoséWine
+:RoséWine rdf:type owl:Class ;
+          rdfs:subClassOf :AlcoholFree ,
+                          :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Sake
+:Sake rdf:type owl:Class ;
+      rdfs:subClassOf :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Smell
+:Smell rdf:type owl:Class ;
+       rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#SoftDrink
+:SoftDrink rdf:type owl:Class ;
+           rdfs:subClassOf :AlcoholFree .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#SparklingWine
+:SparklingWine rdf:type owl:Class ;
+               rdfs:subClassOf :AlcoholFree ,
+                               :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#StorageExtent
+:StorageExtent rdf:type owl:Class ;
+               rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Sub-district
+:Sub-district rdf:type owl:Class ;
+              rdfs:subClassOf :Location .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Sugar
+:Sugar rdf:type owl:Class ;
+       rdfs:subClassOf :Content .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#SweetCider
+:SweetCider rdf:type owl:Class ;
+            rdfs:subClassOf :AlcoholFree .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Taste
+:Taste rdf:type owl:Class ;
+       rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Transport
+:Transport rdf:type owl:Class ;
+           rdfs:subClassOf :Logistics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Vintage
+:Vintage rdf:type owl:Class ;
+         rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Volume
+:Volume rdf:type owl:Class ;
+        rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#WhiteWine
+:WhiteWine rdf:type owl:Class ;
+           rdfs:subClassOf :AlcoholFree ,
+                           :ContainsAlcohol .
+
+
+###  http://www.semanticweb.org/torar/ontologies/2019/9/untitled-ontology-7#Wholesaler
+:Wholesaler rdf:type owl:Class ;
+            rdfs:subClassOf :Logistics .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

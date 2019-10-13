@@ -1,0 +1,329 @@
+@prefix : <http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology> .
+
+<http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alcoholic_drink
+:Alcoholic_drink rdf:type owl:Class ;
+                 rdfs:subClassOf :VM_products ;
+                 owl:disjointWith :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Aquavit
+:Aquavit rdf:type owl:Class ;
+         rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Barley_wine
+:Barley_wine rdf:type owl:Class ;
+             rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Beer
+:Beer rdf:type owl:Class ;
+      rdfs:subClassOf :Alcoholic_drink ;
+      owl:disjointWith :Liquor ,
+                       :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bitter
+:Bitter rdf:type owl:Class ;
+        rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Brown_ale
+:Brown_ale rdf:type owl:Class ;
+           rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_brut
+:Champagne_brut rdf:type owl:Class ;
+                rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_extra_brut
+:Champagne_extra_brut rdf:type owl:Class ;
+                      rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_other
+:Champagne_other rdf:type owl:Class ;
+                 rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_rosé
+:Champagne_rosé rdf:type owl:Class ;
+                rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_sec
+:Champagne_sec rdf:type owl:Class ;
+               rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Characteristics
+:Characteristics rdf:type owl:Class ;
+                 rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Drink_origin .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Dark_lager
+:Dark_lager rdf:type owl:Class ;
+            rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#District
+:District rdf:type owl:Class ;
+          rdfs:subClassOf :Drink_origin ;
+          owl:disjointWith :Subdistrict .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Drink_origin
+:Drink_origin rdf:type owl:Class ;
+              rdfs:subClassOf :Vinmonopolet .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Flavored_wine
+:Flavored_wine rdf:type owl:Class ;
+               rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fortified_wine
+:Fortified_wine rdf:type owl:Class ;
+                rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fruit_wine
+:Fruit_wine rdf:type owl:Class ;
+            rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fruitliquor
+:Fruitliquor rdf:type owl:Class ;
+             rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Genever
+:Genever rdf:type owl:Class ;
+         rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Gin
+:Gin rdf:type owl:Class ;
+     rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Grapeliquor
+:Grapeliquor rdf:type owl:Class ;
+             rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#India_pale_ale
+:India_pale_ale rdf:type owl:Class ;
+                rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Light_lager
+:Light_lager rdf:type owl:Class ;
+             rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liqueur
+:Liqueur rdf:type owl:Class ;
+         rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor
+:Liquor rdf:type owl:Class ;
+        rdfs:subClassOf :Alcoholic_drink ;
+        owl:disjointWith :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor_neutral
+:Liquor_neutral rdf:type owl:Class ;
+                rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor_other
+:Liquor_other rdf:type owl:Class ;
+              rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Monastary_style
+:Monastary_style rdf:type owl:Class ;
+                 rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_red
+:NSW_red rdf:type owl:Class ;
+         rdfs:subClassOf :Natural_sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_rosé
+:NSW_rosé rdf:type owl:Class ;
+          rdfs:subClassOf :Natural_sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_white
+:NSW_white rdf:type owl:Class ;
+           rdfs:subClassOf :Natural_sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Natural_sparkling_wine_cat
+:Natural_sparkling_wine_cat rdf:type owl:Class ;
+                            rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nonalcoholic_drink
+:Nonalcoholic_drink rdf:type owl:Class ;
+                    rdfs:subClassOf :VM_products .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Pale_ale
+:Pale_ale rdf:type owl:Class ;
+          rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Porter_and_stout
+:Porter_and_stout rdf:type owl:Class ;
+                  rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Price_range
+:Price_range rdf:type owl:Class ;
+             rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Product_descriptor
+:Product_descriptor rdf:type owl:Class ;
+                    rdfs:subClassOf :Vinmonopolet .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Red_amber
+:Red_amber rdf:type owl:Class ;
+           rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Redwine
+:Redwine rdf:type owl:Class ;
+         rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Redwine_taste_categories
+:Redwine_taste_categories rdf:type owl:Class ;
+                          rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Roséwine
+:Roséwine rdf:type owl:Class ;
+          rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rum
+:Rum rdf:type owl:Class ;
+     rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Saison_farmhouse_ale
+:Saison_farmhouse_ale rdf:type owl:Class ;
+                      rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Scotch_ale
+:Scotch_ale rdf:type owl:Class ;
+            rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sour_beer
+:Sour_beer rdf:type owl:Class ;
+           rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine
+:Sparkling_wine rdf:type owl:Class ;
+                rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_cat
+:Sparkling_wine_cat rdf:type owl:Class ;
+                    rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_rosé
+:Sparkling_wine_rosé rdf:type owl:Class ;
+                     rdfs:subClassOf :Sparkling_wine_cat .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Special
+:Special rdf:type owl:Class ;
+         rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Subdistrict
+:Subdistrict rdf:type owl:Class ;
+             rdfs:subClassOf :Drink_origin .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sugar_content
+:Sugar_content rdf:type owl:Class ;
+               rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Suitable_food
+:Suitable_food rdf:type owl:Class ;
+               rdfs:subClassOf :Vinmonopolet .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#VM_products
+:VM_products rdf:type owl:Class ;
+             rdfs:subClassOf :Vinmonopolet .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Vinmonopolet
+:Vinmonopolet rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Vodka
+:Vodka rdf:type owl:Class ;
+       rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wheat_beer
+:Wheat_beer rdf:type owl:Class ;
+            rdfs:subClassOf :Beer .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whisky
+:Whisky rdf:type owl:Class ;
+        rdfs:subClassOf :Liquor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whitewine
+:Whitewine rdf:type owl:Class ;
+           rdfs:subClassOf :Wine .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whitewine_taste_categories
+:Whitewine_taste_categories rdf:type owl:Class ;
+                            rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wine
+:Wine rdf:type owl:Class ;
+      rdfs:subClassOf :Alcoholic_drink .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -17,9 +17,23 @@
                   rdfs:subPropertyOf :isMadeIn .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasCharacteristic
+:hasCharacteristic rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasDistrict
 :hasDistrict rdf:type owl:ObjectProperty ;
              owl:inverseOf :isDistrictOf .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasSubdistrict
+:hasSubdistrict rdf:type owl:ObjectProperty ;
+                owl:inverseOf :isSubdistrictOf .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasTaste
+:hasTaste rdf:type owl:ObjectProperty .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isDistrictOf
@@ -38,6 +52,23 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isMadeInSubdistrict
 :isMadeInSubdistrict rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :isMadeIn .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isSubdistrictOf
+:isSubdistrictOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isSuitableWith
+:isSuitableWith rdf:type owl:ObjectProperty ,
+                         owl:SymmetricProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasPrice
+:hasPrice rdf:type owl:DatatypeProperty .
 
 
 #################################################################
@@ -321,7 +352,7 @@
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Suitable_food
 :Suitable_food rdf:type owl:Class ;
-               rdfs:subClassOf :Vinmonopolet .
+               rdfs:subClassOf :Product_descriptor .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#VM_products

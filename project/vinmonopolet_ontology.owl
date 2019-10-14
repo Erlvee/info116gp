@@ -367,6 +367,12 @@
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alsace
+:Alsace rdf:type owl:NamedIndividual ,
+                 :District ;
+        :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Amer_Jomfruøy
 :Amer_Jomfruøy rdf:type owl:NamedIndividual ,
                         :Country .
@@ -380,6 +386,12 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Argentina
 :Argentina rdf:type owl:NamedIndividual ,
                     :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Armagnac
+:Armagnac rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Armenia
@@ -407,6 +419,12 @@
                   :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bordeaux_
+:Bordeaux_ rdf:type owl:NamedIndividual ,
+                    :District ;
+           :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bosnia_Hercegovina
 :Bosnia_Hercegovina rdf:type owl:NamedIndividual ,
                              :Country .
@@ -417,9 +435,27 @@
                  :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bretagne
+:Bretagne rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bulgaria
 :Bulgaria rdf:type owl:NamedIndividual ,
                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Burgund
+:Burgund rdf:type owl:NamedIndividual ,
+                  :District ;
+         :isDistrictOf :Frankrike .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Calvados
+:Calvados rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Canada
@@ -427,9 +463,33 @@
                  :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne
+:Champagne rdf:type owl:NamedIndividual ,
+                    :District ;
+           :isDistrictOf :Frankrike .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Charente
+:Charente rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Chile
 :Chile rdf:type owl:NamedIndividual ,
                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cognac_Brut
+:Cognac_Brut rdf:type owl:NamedIndividual ,
+                      :District ;
+             :isDistrictOf :Frankrike .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cognac_Tradisjonell
+:Cognac_Tradisjonell rdf:type owl:NamedIndividual ,
+                              :District ;
+                     :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Colombia
@@ -537,14 +597,32 @@
                 :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Jura
+:Jura rdf:type owl:NamedIndividual ,
+               :District ;
+      :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kina
 :Kina rdf:type owl:NamedIndividual ,
                :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Korsika
+:Korsika rdf:type owl:NamedIndividual ,
+                  :District ;
+         :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kroatia
 :Kroatia rdf:type owl:NamedIndividual ,
                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Languedoc_Roussillon
+:Languedoc_Roussillon rdf:type owl:NamedIndividual ,
+                               :District ;
+                      :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Latvia
@@ -560,6 +638,12 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Litauen
 :Litauen rdf:type owl:NamedIndividual ,
                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Loire
+:Loire rdf:type owl:NamedIndividual ,
+                :District ;
+       :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Luxemburg
@@ -597,6 +681,12 @@
                   :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Méditerranée
+:Méditerranée rdf:type owl:NamedIndividual ,
+                       :District ;
+              :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nederland
 :Nederland rdf:type owl:NamedIndividual ,
                     :Country .
@@ -620,6 +710,12 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Norge
 :Norge rdf:type owl:NamedIndividual ,
                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Normandie
+:Normandie rdf:type owl:NamedIndividual ,
+                    :District ;
+           :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Panama
@@ -647,9 +743,27 @@
                    :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Provence
+:Provence rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Puerto_Rico
 :Puerto_Rico rdf:type owl:NamedIndividual ,
                       :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rhône_Nord
+:Rhône_Nord rdf:type owl:NamedIndividual ,
+                     :District ;
+            :isDistrictOf :Frankrike .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rhône_Sør
+:Rhône_Sør rdf:type owl:NamedIndividual ,
+                    :District ;
+           :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Romania
@@ -660,6 +774,12 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Russland
 :Russland rdf:type owl:NamedIndividual ,
                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Savoie
+:Savoie rdf:type owl:NamedIndividual ,
+                 :District ;
+        :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Skottland
@@ -705,6 +825,12 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sør_Korea
 :Sør_Korea rdf:type owl:NamedIndividual ,
                     :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sørvest
+:Sørvest rdf:type owl:NamedIndividual ,
+                  :District ;
+         :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Taiwan
@@ -772,6 +898,18 @@
                 :Country .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#districts_franc
+:districts_franc rdf:type owl:NamedIndividual ,
+                          :District ;
+                 :isDistrictOf :Frankrike .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#districts_france
+:districts_france rdf:type owl:NamedIndividual ,
+                           :District ;
+                  :isDistrictOf :Frankrike .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Østerrike
 :Østerrike rdf:type owl:NamedIndividual ,
                     :Country .
@@ -779,7 +917,9 @@
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Øvrige
 :Øvrige rdf:type owl:NamedIndividual ,
-                 :Country .
+                 :Country ,
+                 :District ;
+        :isDistrictOf :Frankrike .
 
 
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis

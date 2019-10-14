@@ -32,28 +32,30 @@ def write_excel(file, worksheet, row, col):
 
 
 def main():
-    converted_dis_france = file_handler("districts_france.txt")
-    converted_subd_france = file_handler("subdistrict_france.txt")
-    converted_countries = file_handler("countries.txt")
-    c_countries = re.sub(r"(\w)([A-Z])", r"\1 \2", converted_countries).split(' ')
-    print(c_countries)
+    # converted_dis_france = file_handler("districts_france.txt")
+    # converted_subd_france = file_handler("subdistrict_france.txt")
+    # converted_countries = file_handler("countries.txt")
+    # c_countries = re.sub(r"(\w)([A-Z])", r"\1 \2", converted_countries).split(' ')
+    # print(c_countries)
 
 
-    districts_france = del_last(converted_dis_france)
-    d_france = protege_list(districts_france)
-    print(d_france)
+    # districts_france = del_last(converted_dis_france)
+    # d_france = protege_list(districts_france)
+    # print(d_france)
 
-    subdis_france = del_last(converted_subd_france)
+    # subdis_france = del_last(converted_subd_france)
+    # subd_france = protege_list(subdis_france)
+    # print(subd_france)
+
+    converted_file = file_handler("countries_vm.txt")
+    subdis_france = del_last(converted_file)
     subd_france = protege_list(subdis_france)
-    print(subd_france)
-
-
-    workbook = xlsxwriter.Workbook('C:/Users/erlend/Documents/Obligatorisk arbeid/INFO116/project/vinmonopolet_data.xlsx')
+    workbook = xlsxwriter.Workbook('C:/Users/erlend/Documents/Obligatorisk arbeid/INFO116/project/vinmonopolet_countries.xlsx')
     worksheet = workbook.add_worksheet()
 
-    write_excel(d_france, worksheet, 0, 0)
+    #write_excel(d_france, worksheet, 0, 0)
     write_excel(subd_france, worksheet, 0, 3)
-    write_excel(c_countries, worksheet, 0, 6)
+    #write_excel(c_countries, worksheet, 0, 6)
     
     
 

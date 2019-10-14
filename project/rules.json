@@ -1,0 +1,1 @@
+{"Collections":[{"sheetName":"Sheet1","startColumn":"D","endColumn":"D","startRow":"2","endRow":"2","comment":"","rule":"Class: @D* \n   SubClassOf: isSubdistrict of value @A*(mm:string)","active":true}]}

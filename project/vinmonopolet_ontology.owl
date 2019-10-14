@@ -9,6 +9,38 @@
 <http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology> rdf:type owl:Ontology .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#IsMadeInDistrict
+:IsMadeInDistrict rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isMadeIn .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasDistrict
+:hasDistrict rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDistrictOf .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isDistrictOf
+:isDistrictOf rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isMadeIn
+:isMadeIn rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isMadeInSubdistrict
+:isMadeInSubdistrict rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :isMadeIn .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -207,6 +239,11 @@
              rdfs:subClassOf :Product_descriptor .
 
 
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Producer
+:Producer rdf:type owl:Class ;
+          rdfs:subClassOf :Drink_origin .
+
+
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Product_descriptor
 :Product_descriptor rdf:type owl:Class ;
                     rdfs:subClassOf :Vinmonopolet .
@@ -324,6 +361,430 @@
 ###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wine
 :Wine rdf:type owl:Class ;
       rdfs:subClassOf :Alcoholic_drink .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Amer_Jomfruøy
+:Amer_Jomfruøy rdf:type owl:NamedIndividual ,
+                        :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Antillene
+:Antillene rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Argentina
+:Argentina rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Armenia
+:Armenia rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Australia
+:Australia rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Barbados
+:Barbados rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Belgia
+:Belgia rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bermuda
+:Bermuda rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bosnia_Hercegovina
+:Bosnia_Hercegovina rdf:type owl:NamedIndividual ,
+                             :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Brasil
+:Brasil rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bulgaria
+:Bulgaria rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Canada
+:Canada rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Chile
+:Chile rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Colombia
+:Colombia rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cuba
+:Cuba rdf:type owl:NamedIndividual ,
+               :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Danmark
+:Danmark rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Dominikanske_republikk
+:Dominikanske_republikk rdf:type owl:NamedIndividual ,
+                                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#EU
+:EU rdf:type owl:NamedIndividual ,
+             :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#England
+:England rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Estland
+:Estland rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Finland
+:Finland rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Frankrike
+:Frankrike rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Georgia
+:Georgia rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Guatemala
+:Guatemala rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Guyana
+:Guyana rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Haiti
+:Haiti rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Hellas
+:Hellas rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#India
+:India rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Irland
+:Irland rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Island
+:Island rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Israel
+:Israel rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Italia
+:Italia rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Jamaica
+:Jamaica rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Japan
+:Japan rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kina
+:Kina rdf:type owl:NamedIndividual ,
+               :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kroatia
+:Kroatia rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Latvia
+:Latvia rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Libanon
+:Libanon rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Litauen
+:Litauen rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Luxemburg
+:Luxemburg rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Makedonia
+:Makedonia rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Marokko
+:Marokko rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Martinique
+:Martinique rdf:type owl:NamedIndividual ,
+                     :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Mauritius
+:Mauritius rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Mexico
+:Mexico rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Moldova
+:Moldova rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nederland
+:Nederland rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#New_Zealand
+:New_Zealand rdf:type owl:NamedIndividual ,
+                      :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nicaragua
+:Nicaragua rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nord_Irland
+:Nord_Irland rdf:type owl:NamedIndividual ,
+                      :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Norge
+:Norge rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Panama
+:Panama rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Paraguay
+:Paraguay rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Peru
+:Peru rdf:type owl:NamedIndividual ,
+               :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Polen
+:Polen rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Portugal
+:Portugal rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Puerto_Rico
+:Puerto_Rico rdf:type owl:NamedIndividual ,
+                      :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Romania
+:Romania rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Russland
+:Russland rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Skottland
+:Skottland rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Slovakia
+:Slovakia rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Slovenia
+:Slovenia rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Spania
+:Spania rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Storbritannia
+:Storbritannia rdf:type owl:NamedIndividual ,
+                        :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sveits
+:Sveits rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sverige
+:Sverige rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sør_Afrika
+:Sør_Afrika rdf:type owl:NamedIndividual ,
+                     :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sør_Korea
+:Sør_Korea rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Taiwan
+:Taiwan rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Thailand
+:Thailand rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Trinidad_Tobago
+:Trinidad_Tobago rdf:type owl:NamedIndividual ,
+                          :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tsjekkia
+:Tsjekkia rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tyrkia
+:Tyrkia rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tyskland
+:Tyskland rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#USA
+:USA rdf:type owl:NamedIndividual ,
+              :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Ukraina
+:Ukraina rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Ungarn
+:Ungarn rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Unknown_country
+:Unknown_country rdf:type owl:NamedIndividual ,
+                          :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Uruguay
+:Uruguay rdf:type owl:NamedIndividual ,
+                  :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Venezuela
+:Venezuela rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wales
+:Wales rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Østerrike
+:Østerrike rdf:type owl:NamedIndividual ,
+                    :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Øvrige
+:Øvrige rdf:type owl:NamedIndividual ,
+                 :Country .
+
+
+###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis
+<http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis> rdf:type owl:NamedIndividual ,
+                                                                                                    :Country .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

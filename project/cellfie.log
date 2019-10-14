@@ -1,0 +1,182 @@
+Date: 2019-10-13 16:15:41
+Ontology source: /C:/Users/erlend/Documents/Obligatorisk%20arbeid/INFO116/project/vinmonopolet_ontology.owl
+Worksheet source: C:\Users\erlend\Documents\Obligatorisk arbeid\INFO116\project\vinmonopolet_data.xlsx
+Transformation rules: C:\Users\erlend\Documents\Obligatorisk arbeid\INFO116\project\rules.json
+
+# Cell range: (Sheet1!D2:D2) Comment: ""
+# Individual: @D*
+# Types: @A*
+
+Individual: Bourgogne  # Generated from value "Bourgogne" located at cell 'Sheet1'!D2.
+   Types: Burgund
+
+===========================================================================================================
+Date: 2019-10-13 16:22:50
+Ontology source: /C:/Users/erlend/Documents/Obligatorisk%20arbeid/INFO116/project/vinmonopolet_ontology.owl
+Worksheet source: C:\Users\erlend\Documents\Obligatorisk arbeid\INFO116\project\vinmonopolet_data.xlsx
+Transformation rules: C:\Users\erlend\Documents\Obligatorisk arbeid\INFO116\project\rules.json
+
+# Cell range: (Sheet1!D2:D80) Comment: ""
+# Individual: @D*
+# Types: Subdistrict
+
+Individual: Bourgogne  # Generated from value "Bourgogne" located at cell 'Sheet1'!D2.
+   Types: Subdistrict
+Individual: Gevrey_Chambertin  # Generated from value "Gevrey_Chambertin" located at cell 'Sheet1'!D3.
+   Types: Subdistrict
+Individual: Chablis  # Generated from value "Chablis" located at cell 'Sheet1'!D4.
+   Types: Subdistrict
+Individual: Meursault  # Generated from value "Meursault" located at cell 'Sheet1'!D5.
+   Types: Subdistrict
+Individual: Nuits_St__Georges  # Generated from value "Nuits_St__Georges" located at cell 'Sheet1'!D6.
+   Types: Subdistrict
+Individual: Puligny_Montrachet  # Generated from value "Puligny_Montrachet" located at cell 'Sheet1'!D7.
+   Types: Subdistrict
+Individual: Chassagne_Montrachet  # Generated from value "Chassagne_Montrachet" located at cell 'Sheet1'!D8.
+   Types: Subdistrict
+Individual: Øvrige  # Generated from value "Øvrige" located at cell 'Sheet1'!D9.
+   Types: Subdistrict
+Individual: Volnay  # Generated from value "Volnay" located at cell 'Sheet1'!D10.
+   Types: Subdistrict
+Individual: Chambolle_Musigny  # Generated from value "Chambolle_Musigny" located at cell 'Sheet1'!D11.
+   Types: Subdistrict
+Individual: Pommard  # Generated from value "Pommard" located at cell 'Sheet1'!D12.
+   Types: Subdistrict
+Individual: Chablis_Grand_Cru  # Generated from value "Chablis_Grand_Cru" located at cell 'Sheet1'!D13.
+   Types: Subdistrict
+Individual: Aloxe_Corton  # Generated from value "Aloxe_Corton" located at cell 'Sheet1'!D14.
+   Types: Subdistrict
+Individual: Morey_Saint_Denis  # Generated from value "Morey_Saint_Denis" located at cell 'Sheet1'!D15.
+   Types: Subdistrict
+Individual: Chablis_Premier_Cru  # Generated from value "Chablis_Premier_Cru" located at cell 'Sheet1'!D16.
+   Types: Subdistrict
+Individual: Beaune_Premier_Cru  # Generated from value "Beaune_Premier_Cru" located at cell 'Sheet1'!D17.
+   Types: Subdistrict
+Individual: Saint_Aubin  # Generated from value "Saint_Aubin" located at cell 'Sheet1'!D18.
+   Types: Subdistrict
+Individual: Morgon  # Generated from value "Morgon" located at cell 'Sheet1'!D19.
+   Types: Subdistrict
+Individual: Beaujolais  # Generated from value "Beaujolais" located at cell 'Sheet1'!D20.
+   Types: Subdistrict
+Individual: Beaujolais_Villages  # Generated from value "Beaujolais_Villages" located at cell 'Sheet1'!D21.
+   Types: Subdistrict
+Individual: Vougeot  # Generated from value "Vougeot" located at cell 'Sheet1'!D22.
+   Types: Subdistrict
+Individual: Côte_de_Nuits  # Generated from value "Côte_de_Nuits" located at cell 'Sheet1'!D23.
+   Types: Subdistrict
+Individual: Santenay  # Generated from value "Santenay" located at cell 'Sheet1'!D24.
+   Types: Subdistrict
+Individual: Savigny_les_Beaune  # Generated from value "Savigny_les_Beaune" located at cell 'Sheet1'!D25.
+   Types: Subdistrict
+Individual: Vosne_Romanée  # Generated from value "Vosne_Romanée" located at cell 'Sheet1'!D26.
+   Types: Subdistrict
+Individual: Pouilly_Fuissé  # Generated from value "Pouilly_Fuissé" located at cell 'Sheet1'!D27.
+   Types: Subdistrict
+Individual: Fleurie  # Generated from value "Fleurie" located at cell 'Sheet1'!D28.
+   Types: Subdistrict
+Individual: Mâcon_Villages  # Generated from value "Mâcon_Villages" located at cell 'Sheet1'!D29.
+   Types: Subdistrict
+Individual: Rully  # Generated from value "Rully" located at cell 'Sheet1'!D30.
+   Types: Subdistrict
+Individual: Saint_Romain  # Generated from value "Saint_Romain" located at cell 'Sheet1'!D31.
+   Types: Subdistrict
+Individual: Mercurey  # Generated from value "Mercurey" located at cell 'Sheet1'!D32.
+   Types: Subdistrict
+Individual: Mâcon  # Generated from value "Mâcon" located at cell 'Sheet1'!D33.
+   Types: Subdistrict
+Individual: Petit_Chablis  # Generated from value "Petit_Chablis" located at cell 'Sheet1'!D34.
+   Types: Subdistrict
+Individual: Marsannay  # Generated from value "Marsannay" located at cell 'Sheet1'!D35.
+   Types: Subdistrict
+Individual: Monthélie  # Generated from value "Monthélie" located at cell 'Sheet1'!D36.
+   Types: Subdistrict
+Individual: Beaune  # Generated from value "Beaune" located at cell 'Sheet1'!D37.
+   Types: Subdistrict
+Individual: Moulin_à_Vent  # Generated from value "Moulin_à_Vent" located at cell 'Sheet1'!D38.
+   Types: Subdistrict
+Individual: Santenay__er_Cru  # Generated from value "Santenay__er_Cru" located at cell 'Sheet1'!D39.
+   Types: Subdistrict
+Individual: Côte_de_Beaune  # Generated from value "Côte_de_Beaune" located at cell 'Sheet1'!D40.
+   Types: Subdistrict
+Individual: Hautes_Côtes_de_Beaune  # Generated from value "Hautes_Côtes_de_Beaune" located at cell 'Sheet1'!D41.
+   Types: Subdistrict
+Individual: Saint_Véran  # Generated from value "Saint_Véran" located at cell 'Sheet1'!D42.
+   Types: Subdistrict
+Individual: Pernand_Vergelesses  # Generated from value "Pernand_Vergelesses" located at cell 'Sheet1'!D43.
+   Types: Subdistrict
+Individual: Hautes_Côtes_de_Nuit  # Generated from value "Hautes_Côtes_de_Nuit" located at cell 'Sheet1'!D44.
+   Types: Subdistrict
+Individual: Meursault_Blagny  # Generated from value "Meursault_Blagny" located at cell 'Sheet1'!D45.
+   Types: Subdistrict
+Individual: Charmes_Chambertin  # Generated from value "Charmes_Chambertin" located at cell 'Sheet1'!D46.
+   Types: Subdistrict
+Individual: Chénas  # Generated from value "Chénas" located at cell 'Sheet1'!D47.
+   Types: Subdistrict
+Individual: Auxey_Duresses  # Generated from value "Auxey_Duresses" located at cell 'Sheet1'!D48.
+   Types: Subdistrict
+Individual: Chambertin  # Generated from value "Chambertin" located at cell 'Sheet1'!D49.
+   Types: Subdistrict
+Individual: Côte_de_Brouilly  # Generated from value "Côte_de_Brouilly" located at cell 'Sheet1'!D50.
+   Types: Subdistrict
+Individual: Côte_de_Nuits_Villages  # Generated from value "Côte_de_Nuits_Villages" located at cell 'Sheet1'!D51.
+   Types: Subdistrict
+Individual: Flagey_Echézeaux  # Generated from value "Flagey_Echézeaux" located at cell 'Sheet1'!D52.
+   Types: Subdistrict
+Individual: Régnié  # Generated from value "Régnié" located at cell 'Sheet1'!D53.
+   Types: Subdistrict
+Individual: Fixin  # Generated from value "Fixin" located at cell 'Sheet1'!D54.
+   Types: Subdistrict
+Individual: Juliénas  # Generated from value "Juliénas" located at cell 'Sheet1'!D55.
+   Types: Subdistrict
+Individual: Mercurey_Premier_Cru  # Generated from value "Mercurey_Premier_Cru" located at cell 'Sheet1'!D56.
+   Types: Subdistrict
+Individual: Montagny  # Generated from value "Montagny" located at cell 'Sheet1'!D57.
+   Types: Subdistrict
+Individual: Mâcon_Verzé  # Generated from value "Mâcon_Verzé" located at cell 'Sheet1'!D58.
+   Types: Subdistrict
+Individual: Brouilly  # Generated from value "Brouilly" located at cell 'Sheet1'!D59.
+   Types: Subdistrict
+Individual: Côte_Chalonnaise  # Generated from value "Côte_Chalonnaise" located at cell 'Sheet1'!D60.
+   Types: Subdistrict
+Individual: Givry  # Generated from value "Givry" located at cell 'Sheet1'!D61.
+   Types: Subdistrict
+Individual: Maranges  # Generated from value "Maranges" located at cell 'Sheet1'!D62.
+   Types: Subdistrict
+Individual: Mâcon_Lugny  # Generated from value "Mâcon_Lugny" located at cell 'Sheet1'!D63.
+   Types: Subdistrict
+Individual: Saint_Bris  # Generated from value "Saint_Bris" located at cell 'Sheet1'!D64.
+   Types: Subdistrict
+Individual: Chiroubles  # Generated from value "Chiroubles" located at cell 'Sheet1'!D65.
+   Types: Subdistrict
+Individual: Chorey_les_Beaune  # Generated from value "Chorey_les_Beaune" located at cell 'Sheet1'!D66.
+   Types: Subdistrict
+Individual: Maranges_Premier_Cru  # Generated from value "Maranges_Premier_Cru" located at cell 'Sheet1'!D67.
+   Types: Subdistrict
+Individual: Pouilly_Vinzelles  # Generated from value "Pouilly_Vinzelles" located at cell 'Sheet1'!D68.
+   Types: Subdistrict
+Individual: Saint_Amour  # Generated from value "Saint_Amour" located at cell 'Sheet1'!D69.
+   Types: Subdistrict
+Individual: Ladoix  # Generated from value "Ladoix" located at cell 'Sheet1'!D70.
+   Types: Subdistrict
+Individual: Mâcon_Cruzille  # Generated from value "Mâcon_Cruzille" located at cell 'Sheet1'!D71.
+   Types: Subdistrict
+Individual: Mâcon_Fuissé  # Generated from value "Mâcon_Fuissé" located at cell 'Sheet1'!D72.
+   Types: Subdistrict
+Individual: Viré_Clessé  # Generated from value "Viré_Clessé" located at cell 'Sheet1'!D73.
+   Types: Subdistrict
+Individual: Bâtard_Montrachet  # Generated from value "Bâtard_Montrachet" located at cell 'Sheet1'!D74.
+   Types: Subdistrict
+Individual: Mazis_Chambertin  # Generated from value "Mazis_Chambertin" located at cell 'Sheet1'!D75.
+   Types: Subdistrict
+Individual: Mâcon_Vinzelles  # Generated from value "Mâcon_Vinzelles" located at cell 'Sheet1'!D76.
+   Types: Subdistrict
+Individual: Bourgogne_Épineuil  # Generated from value "Bourgogne_Épineuil" located at cell 'Sheet1'!D77.
+   Types: Subdistrict
+Individual: Côtes_d'Auxerre  # Generated from value "Côtes_d'Auxerre" located at cell 'Sheet1'!D78.
+   Types: Subdistrict
+Individual: Musigny  # Generated from value "Musigny" located at cell 'Sheet1'!D79.
+   Types: Subdistrict
+Individual: Vézelay  # Generated from value "Vézelay" located at cell 'Sheet1'!D80.
+   Types: Subdistrict
+
+===========================================================================================================

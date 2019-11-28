@@ -62,47 +62,66 @@
 		[
 		{
 		  "@context": {
-			"Product" : "http://schema.org/Product",
-			"name" : "http://schema.org/name",
-			"ontology":"http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology",
-			"Alcoholic_drink":  "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alcoholic_drink",
-			"VM_products" : "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#VM_products",
-			"Wine" : "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wine"
+				"schema" : "http://schema.org/",
+				"vm":"http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#"
 			},
-			"@id" : "ontology:VM_products",
-			"@type" : "VM_products", "name" : "Alcoholic_drink",
-			"VM_products" : [{
-			  "@id": "ontology:Alcoholic_drink",
-				"@type":"Alcoholic_drink","name": "Wine",
-					"SubClass":   [{
-					  "@id" : "ontology:Wine",
-						"@type":"Wine", "name": "Redwine",
-						 "Product" : [{
-							  "@id" : "ontology:Redwine",
-							"@type":"Redwine", "name": "Radici Taurasi Riserva 2012",
-							"hasTaste" : "Nyansert og fint utviklet, preg av mørke bær og tørket frukt. Fast og lang ettersmak.",
-							"isMadeInSubdistrict": "italia_campania_taurasi",
-							"isMadeInDistrict": "italia_campania",
-							"isMadeIn": "italia",
-							"isMadeFromGrape": "Aglianico 100%",
-							"hasYear": "2012 * Vi tar forbehold om at varen som leveres kan ha en annen årgang/etikett enn oppgitt",
-							"isProducedBy": "Mastroberardino",
-							"hasSugarContent": "&lt;3 g/l",
-							"hasAlcoholPercentage": "13.5%",
-							"hasCharacteristic": [{
-							   "@id" : "ontology:hasCharacteristic",
-								"@type" : "hasCharacteristic",
-								  "Freshness": 	"9 av 12",
-								  "Tannins" : "10 av 12",
-								  "Fullness": "10 av 12"
-								}],
-							  "isConsumableFor": [ "Storvilt","Lam og sau", "Storfe"]
-						  }]
+			"@id" : "schema:Product",
+			"@type" : "schema:Product", "name" : "Radici Taurasi Riserva 2012",
+           
+            "schema:url" : "https://www.vinmonopolet.no/vmp/Land/Italia/Radici-Taurasi-Riserva-2012/p/1053001", 
+            "schema:image": [
+                "https://www.vinmonopolet.no/Land/Italia/Radici-Taurasi-Riserva-2012/p/1053001",
+                "https://bilder.vinmonopolet.no/cache/1200x1200-0/1053001-1.jpg",
+				"https://bilder.vinmonopolet.no/cache/515x515-0/1053001-1.jpg",
+                "https://www.vinmonopolet.no/_ui/responsive/theme-vmp/images/vinmonopolet-rosett.png" ],
+            "schema:website": [{
+                "@id" : "https://schema.org/WebSite",
+                "@type": "schema:website",
+                "schema:name" : "vinmonopolet",
+                "schema:description": "I Vinmonopolets nettbutikk kan du velge blant mer enn 20 000 varer"
+            }],
+            "schema:sku" : "1053001",
+            "vm:hasYear": "2012",
+            "vm:isMadeIn": "italia",
+            "vm:isMadeInDistrict": "italia_campania",
+            
+            "vm:hasTaste" : "Nyansert og fint utviklet, preg av mørke bær og tørket frukt. Fast og lang ettersmak.",
+            "vm:isMadeFromGrape": "Aglianico 100%",
+            "schema:brand": [{
+                "@id" : "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Producer",
+                "@type" : "Producer",
+                "schema:name" : "Mastroberardino",
+                "schema:containedInPlace" : [{
+                    "@type": "vm:Subdistrict",
+                    "schema:name": "italia_campania_taurasi",
+                    "vm:isSubdistrictOf" : [{
+                        "@type" : "vm:District",
+                        "schema:name": "italia_campania",
+                        "vm:isLocatedIn" : [{
+                            "@type" : "schema:Country",
+                            "schema:name": "italia"
+                        }]
+                    }]
+                }]
+            }],
+            "vm:Category" : "RedWine",
+            "schema:Price" : "Kr. 459,90",
+            "vm:hasSugarContent": "&lt;3 g/l",
+            "vm:hasAlcoholPercentage": "13.5%",
+            "vm:hasCharacteristic": [{
+                "@id" : "vm:hasCharacteristic",
+                "@type" : "vm:hasCharacteristic",
+                    "vm:Freshness": "9 av 12",
+                    "vm:Tannins" : "10 av 12",
+                    "vm:Fullness": "10 av 12"
+                }],
+                "vm:isConsumableFor": [ "Storvilt","Lam og sau", "Storfe"]
+            }]
+	
 					}
 				] }
 			]
 		}]
-		
 </script>
 
 

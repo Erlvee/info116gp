@@ -56,6 +56,56 @@
 	
 <meta name="apple-itunes-app" content="app-id=1080930756">
 <script type="text/javascript">document.documentElement.className = "js-enabled"</script>
+
+<script type="application/ld+json">
+	<script type="application/ld+json">
+		[
+		{
+		  "@context": {
+			"Product" : "http://schema.org/Product",
+			"name" : "http://schema.org/name",
+			"ontology":"http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology",
+			"Alcoholic_drink":  "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alcoholic_drink",
+			"VM_products" : "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#VM_products",
+			"Wine" : "http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wine"
+			},
+			"@id" : "ontology:VM_products",
+			"@type" : "VM_products", "name" : "Alcoholic_drink",
+			"VM_products" : [{
+			  "@id": "ontology:Alcoholic_drink",
+				"@type":"Alcoholic_drink","name": "Wine",
+					"SubClass":   [{
+					  "@id" : "ontology:Wine",
+						"@type":"Wine", "name": "Redwine",
+						 "Product" : [{
+							  "@id" : "ontology:Redwine",
+							"@type":"Redwine", "name": "Radici Taurasi Riserva 2012",
+							"hasTaste" : "Nyansert og fint utviklet, preg av mørke bær og tørket frukt. Fast og lang ettersmak.",
+							"isMadeInSubdistrict": "italia_campania_taurasi",
+							"isMadeInDistrict": "italia_campania",
+							"isMadeIn": "italia",
+							"isMadeFromGrape": "Aglianico 100%",
+							"hasYear": "2012 * Vi tar forbehold om at varen som leveres kan ha en annen årgang/etikett enn oppgitt",
+							"isProducedBy": "Mastroberardino",
+							"hasSugarContent": "&lt;3 g/l",
+							"hasAlcoholPercentage": "13.5%",
+							"hasCharacteristic": [{
+							   "@id" : "ontology:hasCharacteristic",
+								"@type" : "hasCharacteristic",
+								  "Freshness": 	"9 av 12",
+								  "Tannins" : "10 av 12",
+								  "Fullness": "10 av 12"
+								}],
+							  "isConsumableFor": [ "Storvilt","Lam og sau", "Storfe"]
+						  }]
+					}
+				] }
+			]
+		}]
+		
+</script>
+
+
 </head>
 <body class="site page-productDetails pageType-ProductPage template-pages-product-productLayout2Page  language-no">
 	<script type="text/javascript" src="/_ui/shared/js/analyticsmediator.js"></script>

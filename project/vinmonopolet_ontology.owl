@@ -4,61 +4,96 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology> .
+@base <http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology> .
 
-<http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology> rdf:type owl:Ontology .
+<http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#IsMadeInDistrict
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#IsMadeInDistrict
 :IsMadeInDistrict rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :isMadeIn .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasCharacteristic
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasCharacteristic
 :hasCharacteristic rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf owl:topObjectProperty .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasDistrict
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasDistrict
 :hasDistrict rdf:type owl:ObjectProperty ;
-             owl:inverseOf :isDistrictOf .
+             owl:inverseOf :isDistrictOf ;
+             rdfs:domain :Country ;
+             rdfs:range :District .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasSubdistrict
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasProducer
+:hasProducer rdf:type owl:ObjectProperty ,
+                      owl:TransitiveProperty ;
+             rdfs:domain :Drink_origin ;
+             rdfs:range :Producer .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasSubdistrict
 :hasSubdistrict rdf:type owl:ObjectProperty ;
-                owl:inverseOf :isSubdistrictOf .
+                owl:inverseOf :isSubdistrictOf ;
+                rdfs:domain :District ;
+                rdfs:range :Subdistrict .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasTaste
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasSugarContent
+:hasSugarContent rdf:type owl:ObjectProperty ;
+                 rdfs:domain :VM_products ;
+                 rdfs:range :Sugar_content .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasTaste
 :hasTaste rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isDistrictOf
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isDistrictOf
 :isDistrictOf rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf owl:topObjectProperty .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isLocatedIn
-:isLocatedIn rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ,
+                      owl:TransitiveProperty .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isMadeIn
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isMadeFromGrape
+:isMadeFromGrape rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isMadeIn
 :isMadeIn rdf:type owl:ObjectProperty .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isMadeInSubdistrict
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isMadeInSubdistrict
 :isMadeInSubdistrict rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf :isMadeIn .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isSubdistrictOf
-:isSubdistrictOf rdf:type owl:ObjectProperty .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isProducedBy
+:isProducedBy rdf:type owl:ObjectProperty ;
+              owl:inverseOf :isProducerOf ;
+              rdfs:domain :VM_products ;
+              rdfs:range :Producer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#isSuitableWith
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isProducerOf
+:isProducerOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isSubdistrictOf
+:isSubdistrictOf rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Subdistrict ;
+                 rdfs:range :District .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#isSuitableWith
 :isSuitableWith rdf:type owl:ObjectProperty ,
                          owl:SymmetricProperty .
 
@@ -67,895 +102,1920 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#hasPrice
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasAlchoholPercentage
+:hasAlchoholPercentage rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasPrice
 :hasPrice rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#hasYear
+:hasYear rdf:type owl:DatatypeProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alcoholic_drink
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Alcoholic_drink
 :Alcoholic_drink rdf:type owl:Class ;
                  rdfs:subClassOf :VM_products ;
                  owl:disjointWith :Nonalcoholic_drink .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Aquavit
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Aquavit
 :Aquavit rdf:type owl:Class ;
          rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Barley_wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Barley_wine
 :Barley_wine rdf:type owl:Class ;
              rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Beer
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Beer
 :Beer rdf:type owl:Class ;
       rdfs:subClassOf :Alcoholic_drink ;
-      owl:disjointWith :Liquor ,
+      owl:disjointWith :Cider ,
+                       :Liquor ,
                        :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bitter
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bitter
 :Bitter rdf:type owl:Class ;
         rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Brown_ale
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bitterness
+:Bitterness rdf:type owl:Class ;
+            rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Brown_ale
 :Brown_ale rdf:type owl:Class ;
            rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_brut
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne_brut
 :Champagne_brut rdf:type owl:Class ;
                 rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_extra_brut
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne_extra_brut
 :Champagne_extra_brut rdf:type owl:Class ;
                       rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_other
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne_other
 :Champagne_other rdf:type owl:Class ;
                  rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_rosé
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne_rosé
 :Champagne_rosé rdf:type owl:Class ;
                 rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne_sec
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne_sec
 :Champagne_sec rdf:type owl:Class ;
                rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Characteristics
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Characteristics
 :Characteristics rdf:type owl:Class ;
                  rdfs:subClassOf :Product_descriptor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Country
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cider
+:Cider rdf:type owl:Class ;
+       rdfs:subClassOf :Alcoholic_drink ;
+       owl:disjointWith :Liquor ,
+                        :Wine .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Country
 :Country rdf:type owl:Class ;
          rdfs:subClassOf :Drink_origin .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Dark_lager
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dark_lager
 :Dark_lager rdf:type owl:Class ;
             rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#District
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#District
 :District rdf:type owl:Class ;
-          rdfs:subClassOf :Drink_origin ;
-          owl:disjointWith :Subdistrict .
+          rdfs:subClassOf :Drink_origin ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isLocatedIn ;
+                            owl:someValuesFrom :Country
+                          ] .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Drink_origin
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Drink_origin
 :Drink_origin rdf:type owl:Class ;
               rdfs:subClassOf :Vinmonopolet .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Flavored_wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Feed
+:Feed rdf:type owl:Class ;
+      rdfs:subClassOf :Product_descriptor .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Flavored_wine
 :Flavored_wine rdf:type owl:Class ;
                rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fortified_wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fortified_wine
 :Fortified_wine rdf:type owl:Class ;
                 rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fruit_wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Freshness
+:Freshness rdf:type owl:Class ;
+           rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fruit_wine
 :Fruit_wine rdf:type owl:Class ;
             rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Fruitliquor
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fruitliquor
 :Fruitliquor rdf:type owl:Class ;
              rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Genever
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fullness
+:Fullness rdf:type owl:Class ;
+          rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Genever
 :Genever rdf:type owl:Class ;
          rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Gin
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Gin
 :Gin rdf:type owl:Class ;
      rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Grapeliquor
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Grapeliquor
 :Grapeliquor rdf:type owl:Class ;
              rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#India_pale_ale
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#India_pale_ale
 :India_pale_ale rdf:type owl:Class ;
                 rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Light_lager
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Light_lager
 :Light_lager rdf:type owl:Class ;
              rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liqueur
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Liqueur
 :Liqueur rdf:type owl:Class ;
          rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Liquor
 :Liquor rdf:type owl:Class ;
         rdfs:subClassOf :Alcoholic_drink ;
         owl:disjointWith :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor_neutral
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Liquor_neutral
 :Liquor_neutral rdf:type owl:Class ;
                 rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Liquor_other
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Liquor_other
 :Liquor_other rdf:type owl:Class ;
               rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Monastary_style
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Monastary_style
 :Monastary_style rdf:type owl:Class ;
                  rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_red
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NA_Beer
+:NA_Beer rdf:type owl:Class ;
+         rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NA_Other
+:NA_Other rdf:type owl:Class ;
+          rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NA_Sparkling_drink
+:NA_Sparkling_drink rdf:type owl:Class ;
+                    rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NA_juice
+:NA_juice rdf:type owl:Class ;
+          rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NA_wine
+:NA_wine rdf:type owl:Class ;
+         rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NSW_red
 :NSW_red rdf:type owl:Class ;
          rdfs:subClassOf :Natural_sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_rosé
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NSW_rosé
 :NSW_rosé rdf:type owl:Class ;
           rdfs:subClassOf :Natural_sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#NSW_white
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#NSW_white
 :NSW_white rdf:type owl:Class ;
            rdfs:subClassOf :Natural_sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Natural_sparkling_wine_cat
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Natural_sparkling_wine_cat
 :Natural_sparkling_wine_cat rdf:type owl:Class ;
                             rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nonalcoholic_drink
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nonalcoholic_drink
 :Nonalcoholic_drink rdf:type owl:Class ;
                     rdfs:subClassOf :VM_products .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Pale_ale
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Pale_ale
 :Pale_ale rdf:type owl:Class ;
           rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Porter_and_stout
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Porter_and_stout
 :Porter_and_stout rdf:type owl:Class ;
                   rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Price_range
-:Price_range rdf:type owl:Class ;
-             rdfs:subClassOf :Product_descriptor .
-
-
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Producer
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Producer
 :Producer rdf:type owl:Class ;
-          rdfs:subClassOf :Drink_origin .
+          rdfs:subClassOf :Drink_origin ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isLocatedIn ;
+                            owl:someValuesFrom :Subdistrict
+                          ] .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Product_descriptor
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Product_descriptor
 :Product_descriptor rdf:type owl:Class ;
                     rdfs:subClassOf :Vinmonopolet .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Red_amber
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Red_amber
 :Red_amber rdf:type owl:Class ;
            rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Redwine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Redwine
 :Redwine rdf:type owl:Class ;
-         rdfs:subClassOf :Wine .
+         rdfs:subClassOf :Wine ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasSugarContent ;
+                           owl:someValuesFrom :Sugar_content
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isMadeFromGrape ;
+                           owl:someValuesFrom :WineGrape
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isProducedBy ;
+                           owl:someValuesFrom :Producer
+                         ] .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Redwine_taste_categories
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Redwine_taste_categories
 :Redwine_taste_categories rdf:type owl:Class ;
                           rdfs:subClassOf :Product_descriptor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Roséwine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Roséwine
 :Roséwine rdf:type owl:Class ;
           rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rum
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Rum
 :Rum rdf:type owl:Class ;
      rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Saison_farmhouse_ale
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Saison_farmhouse_ale
 :Saison_farmhouse_ale rdf:type owl:Class ;
                       rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Scotch_ale
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Scotch_ale
 :Scotch_ale rdf:type owl:Class ;
             rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sour_beer
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Soft_drink
+:Soft_drink rdf:type owl:Class ;
+            rdfs:subClassOf :Nonalcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sour_beer
 :Sour_beer rdf:type owl:Class ;
            rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine
 :Sparkling_wine rdf:type owl:Class ;
                 rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_cat
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_cat
 :Sparkling_wine_cat rdf:type owl:Class ;
                     rdfs:subClassOf :Wine .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_rosé
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sparkling_wine_rosé
 :Sparkling_wine_rosé rdf:type owl:Class ;
                      rdfs:subClassOf :Sparkling_wine_cat .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Special
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Special
 :Special rdf:type owl:Class ;
          rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Subdistrict
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Subdistrict
 :Subdistrict rdf:type owl:Class ;
-             rdfs:subClassOf :Drink_origin .
+             rdfs:subClassOf :Drink_origin ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isLocatedIn ;
+                               owl:someValuesFrom :District
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :isSubdistrictOf ;
+                               owl:someValuesFrom :District
+                             ] .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sugar_content
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sugar_content
 :Sugar_content rdf:type owl:Class ;
                rdfs:subClassOf :Product_descriptor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Suitable_food
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Suitable_food
 :Suitable_food rdf:type owl:Class ;
                rdfs:subClassOf :Product_descriptor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#VM_products
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sweetness
+:Sweetness rdf:type owl:Class ;
+           rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tannins
+:Tannins rdf:type owl:Class ;
+         rdfs:subClassOf :Characteristics .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#VM_products
 :VM_products rdf:type owl:Class ;
              rdfs:subClassOf :Vinmonopolet .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Vinmonopolet
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Vinmonopolet
 :Vinmonopolet rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Vodka
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Vodka
 :Vodka rdf:type owl:Class ;
        rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wheat_beer
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Wheat_beer
 :Wheat_beer rdf:type owl:Class ;
             rdfs:subClassOf :Beer .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whisky
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Whisky
 :Whisky rdf:type owl:Class ;
         rdfs:subClassOf :Liquor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whitewine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Whitewine
 :Whitewine rdf:type owl:Class ;
-           rdfs:subClassOf :Wine .
+           rdfs:subClassOf :Wine ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasSugarContent ;
+                             owl:someValuesFrom :Sugar_content
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isMadeFromGrape ;
+                             owl:someValuesFrom :WineGrape
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isProducedBy ;
+                             owl:someValuesFrom :Producer
+                           ] .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Whitewine_taste_categories
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Whitewine_taste_categories
 :Whitewine_taste_categories rdf:type owl:Class ;
                             rdfs:subClassOf :Product_descriptor .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wine
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Wine
 :Wine rdf:type owl:Class ;
       rdfs:subClassOf :Alcoholic_drink .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#WineGrape
+:WineGrape rdf:type owl:Class ;
+           rdfs:subClassOf :Feed .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Alsace
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Achel_Brewery
+:Achel_Brewery rdf:type owl:NamedIndividual ,
+                        :Producer ;
+               :isLocatedIn :Belgia ;
+               :isProducerOf :Achel_Trappist_Bruin .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Achel_Trappist_Bruin
+:Achel_Trappist_Bruin rdf:type owl:NamedIndividual ,
+                               :Beer ,
+                               :Monastary_style ;
+                      :hasCharacteristic :Good_freshness ,
+                                         :Good_fullness ,
+                                         :Medium_bitterness ,
+                                         :Medium_sweetness ;
+                      :isMadeIn :Belgia ;
+                      :isProducedBy :Achel_Brewery ;
+                      :isSuitableWith :Red_meat ;
+                      :hasAlchoholPercentage "8.0"^^xsd:float ;
+                      :hasPrice "70.9"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Aglianico
+:Aglianico rdf:type owl:NamedIndividual ,
+                    :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Akershus
+:Akershus rdf:type owl:NamedIndividual ,
+                   :District ;
+          :hasProducer :Wettre_bryggeri ;
+          :isDistrictOf :Norge ;
+          :isLocatedIn :Norge .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Alsace
 :Alsace rdf:type owl:NamedIndividual ,
                  :District ;
-        :isDistrictOf :Frankrike .
+        :isDistrictOf :Frankrike ;
+        :isLocatedIn :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Amer_Jomfruøy
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Amer_Jomfruøy
 :Amer_Jomfruøy rdf:type owl:NamedIndividual ,
                         :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Antillene
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Angiolino_Maule
+:Angiolino_Maule rdf:type owl:NamedIndividual ,
+                          :Producer ;
+                 :isLocatedIn :Veneto ;
+                 :isProducerOf :Angiolino_Maule_Pico .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Angiolino_Maule_Pico
+:Angiolino_Maule_Pico rdf:type owl:NamedIndividual ,
+                               :Whitewine ,
+                               :Wine ;
+                      :IsMadeInDistrict :Veneto ;
+                      :hasCharacteristic :Dry ,
+                                         :Good_freshness ,
+                                         :Light_fullness ;
+                      :hasSugarContent :Dry ;
+                      :hasTaste :Juicy_and_fresh ;
+                      :isMadeFromGrape :Garganega ;
+                      :isMadeInSubdistrict :Øvrige ;
+                      :isProducedBy :Angiolino_Maule ;
+                      :isSuitableWith :Fish ,
+                                      :Shellfish ,
+                                      :White_meat ;
+                      :hasAlchoholPercentage "13.5"^^xsd:float ;
+                      :hasPrice "299.9"^^xsd:float ;
+                      :hasYear "2016"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Antillene
 :Antillene rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Argentina
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Aperitif
+:Aperitif rdf:type owl:NamedIndividual ,
+                   :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Argentina
 :Argentina rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Armagnac
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Armagnac
 :Armagnac rdf:type owl:NamedIndividual ,
                    :District ;
           :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Armenia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Armenia
 :Armenia rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Australia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Asti
+:Asti rdf:type owl:NamedIndividual ,
+               :Subdistrict ;
+      :hasProducer :Famiglia_Maronne ;
+      :isSubdistrictOf :Piemonte .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Astringement
+:Astringement rdf:type owl:NamedIndividual ,
+                       :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Austmann_Bryggeri
+:Austmann_Bryggeri rdf:type owl:NamedIndividual ,
+                            :Producer ;
+                   :isLocatedIn :Sør_Trøndelag ;
+                   :isProducerOf :Austmann_Northie_Brown_Ale .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Austmann_Northie_Brown_Ale
+:Austmann_Northie_Brown_Ale rdf:type owl:NamedIndividual ,
+                                     :Beer ,
+                                     :Brown_ale ;
+                            :IsMadeInDistrict :Sør_Trøndelag ;
+                            :hasCharacteristic :Good_fullness ,
+                                               :Low_bitterness ,
+                                               :Low_freshness ;
+                            :isMadeIn :Norge ;
+                            :isSuitableWith :Big_game ,
+                                            :Lamb_and_sheep ,
+                                            :Red_meat ;
+                            :hasAlchoholPercentage "5.5"^^xsd:float ;
+                            :hasPrice "43.9"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Australia
 :Australia rdf:type owl:NamedIndividual ,
-                    :Country .
+                    :Country ;
+           :hasDistrict :South_Eastern_Australia .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Barbados
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Barbados
 :Barbados rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Belgia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Barrels_and_fruit
+:Barrels_and_fruit rdf:type owl:NamedIndividual ,
+                            :Whitewine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Barsac
+:Barsac rdf:type owl:NamedIndividual ;
+        :hasProducer :Ch._Clemens_Producer ;
+        :isSubdistrictOf :Bordeaux .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Belgia
 :Belgia rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bermuda
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bermuda
 :Bermuda rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bordeaux_
-:Bordeaux_ rdf:type owl:NamedIndividual ,
-                    :District ;
-           :isDistrictOf :Frankrike .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Big_game
+:Big_game rdf:type owl:NamedIndividual ,
+                   :Suitable_food .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bosnia_Hercegovina
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bold_and_floral
+:Bold_and_floral rdf:type owl:NamedIndividual ,
+                          :Whitewine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bone_dry
+:Bone_dry rdf:type owl:NamedIndividual ,
+                   :Sugar_content .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bordeaux
+:Bordeaux rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Frankrike ;
+          :isLocatedIn :Frankrike .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bosnia_Hercegovina
 :Bosnia_Hercegovina rdf:type owl:NamedIndividual ,
                              :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Brasil
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bourgogne
+:Bourgogne rdf:type owl:NamedIndividual ,
+                    :Subdistrict ;
+           :isSubdistrictOf :Burgund .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Brasil
 :Brasil rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bretagne
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bretagne
 :Bretagne rdf:type owl:NamedIndividual ,
                    :District ;
           :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Bulgaria
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Bulgaria
 :Bulgaria rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Burgund
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Burgund
 :Burgund rdf:type owl:NamedIndividual ,
                   :District ;
-         :isDistrictOf :Frankrike .
+         :hasSubdistrict :Bourgogne ,
+                         :Hautes-Côtes_de_Beaune ,
+                         :Volnay ;
+         :isDistrictOf :Frankrike ;
+         :isLocatedIn :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Calvados
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Buskerud
+:Buskerud rdf:type owl:NamedIndividual ,
+                   :District ;
+          :isDistrictOf :Norge ;
+          :isLocatedIn :Norge .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cabernet_franc
+:Cabernet_franc rdf:type owl:NamedIndividual ,
+                         :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cabernet_sauvignon
+:Cabernet_sauvignon rdf:type owl:NamedIndividual ,
+                             :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Calvados
 :Calvados rdf:type owl:NamedIndividual ,
                    :District ;
           :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Canada
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Campania
+:Campania rdf:type owl:NamedIndividual ,
+                   :District ;
+          :hasSubdistrict :Taurasi ;
+          :isDistrictOf :Italia ;
+          :isLocatedIn :Italia .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Canada
 :Canada rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Champagne
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Ch._Clemens
+:Ch._Clemens rdf:type owl:NamedIndividual ,
+                      :Whitewine ,
+                      :Wine ;
+             :IsMadeInDistrict :Bordeaux ;
+             :hasCharacteristic :Good_freshness ,
+                                :Good_fullness ,
+                                :High_sweetness ;
+             :hasSugarContent :Sweet ;
+             :isMadeFromGrape :Sémillion ;
+             :isMadeInSubdistrict :Barsac ;
+             :isProducedBy :Ch._Clemens_Producer ;
+             :isSuitableWith :Aperitif ,
+                             :Cheese ,
+                             :Dessert ;
+             :hasAlchoholPercentage "14.5"^^xsd:float ;
+             :hasPrice "929.9"^^xsd:float ;
+             :hasYear "2006"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Ch._Clemens_Producer
+:Ch._Clemens_Producer rdf:type owl:NamedIndividual ,
+                               :Producer .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Champagne
 :Champagne rdf:type owl:NamedIndividual ,
                     :District ;
            :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Charente
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Chardonnay
+:Chardonnay rdf:type owl:NamedIndividual ,
+                     :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Charente
 :Charente rdf:type owl:NamedIndividual ,
                    :District ;
           :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Chile
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cheese
+:Cheese rdf:type owl:NamedIndividual ,
+                 :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Chile
 :Chile rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cognac_Brut
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Clarendelle_Bordeaux_Rouge
+:Clarendelle_Bordeaux_Rouge rdf:type owl:NamedIndividual ,
+                                     :Redwine ,
+                                     :Wine ;
+                            :IsMadeInDistrict :Bordeaux ;
+                            :hasCharacteristic :Little_astringement ,
+                                               :Low_freshness ;
+                            :hasSugarContent :Dry ;
+                            :hasTaste :Firm_and_fruity ;
+                            :isMadeFromGrape :Cabernet_franc ,
+                                             :Cabernet_sauvignon ,
+                                             :Merlot ;
+                            :isMadeIn :Frankrike ;
+                            :isMadeInSubdistrict :Øvrige ;
+                            :isProducedBy :Dom._Clarence_Dillon ;
+                            :isSuitableWith :Lamb_and_sheep ,
+                                            :Red_meat ,
+                                            :Small_game ;
+                            :hasAlchoholPercentage "13.0"^^xsd:float ;
+                            :hasPrice "189.9"^^xsd:float ;
+                            :hasYear "2014"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cognac_Brut
 :Cognac_Brut rdf:type owl:NamedIndividual ,
                       :District ;
              :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cognac_Tradisjonell
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cognac_Tradisjonell
 :Cognac_Tradisjonell rdf:type owl:NamedIndividual ,
                               :District ;
                      :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Colombia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Colombia
 :Colombia rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Cuba
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Corvina
+:Corvina rdf:type owl:NamedIndividual ,
+                  :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Corvinone
+:Corvinone rdf:type owl:NamedIndividual ,
+                    :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Cuba
 :Cuba rdf:type owl:NamedIndividual ,
                :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Danmark
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Danmark
 :Danmark rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Dominikanske_republikk
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dessert
+:Dessert rdf:type owl:NamedIndividual ,
+                  :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Developed_and_nuanced
+:Developed_and_nuanced rdf:type owl:NamedIndividual ,
+                                :Redwine_taste_categories ,
+                                :Whitewine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Didier_Montchevet_Hautes_Côtes_de_Beaune
+:Didier_Montchevet_Hautes_Côtes_de_Beaune rdf:type owl:NamedIndividual ,
+                                                   :Whitewine ,
+                                                   :Wine ;
+                                          :IsMadeInDistrict :Burgund ;
+                                          :hasCharacteristic :Dry ,
+                                                             :Fresh ,
+                                                             :Medium_fullness ;
+                                          :hasTaste :Light_and_fresh ;
+                                          :isMadeFromGrape :Chardonnay ;
+                                          :isMadeIn :Italia ;
+                                          :isMadeInSubdistrict :Hautes-Côtes_de_Beaune ;
+                                          :isSuitableWith :Fish ,
+                                                          :Shellfish ,
+                                                          :White_meat ;
+                                          :hasAlchoholPercentage "12.5"^^xsd:float ;
+                                          :hasPrice "269.9"^^xsd:float ;
+                                          :hasYear "2016"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dom._Clarence_Dillon
+:Dom._Clarence_Dillon rdf:type owl:NamedIndividual ,
+                               :Producer ;
+                      :isLocatedIn :Bordeaux ;
+                      :isProducerOf :Clarendelle_Bordeaux_Rouge .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dom._Didier_Montchovet
+:Dom._Didier_Montchovet rdf:type owl:NamedIndividual ,
+                                 :Producer ;
+                        :isLocatedIn :Hautes-Côtes_de_Beaune ;
+                        :isProducerOf :Didier_Montchevet_Hautes_Côtes_de_Beaune .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dominikanske_republikk
 :Dominikanske_republikk rdf:type owl:NamedIndividual ,
                                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#EU
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Dry
+:Dry rdf:type owl:NamedIndividual ,
+              :Sugar_content ,
+              :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#EU
 :EU rdf:type owl:NamedIndividual ,
              :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#England
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Edenvale
+:Edenvale rdf:type owl:NamedIndividual ,
+                   :Producer ;
+          :isLocatedIn :South_Eastern_Australia ;
+          :isProducerOf :Edenvale_Cabernet_Sauvignon .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Edenvale_Cabernet_Sauvignon
+:Edenvale_Cabernet_Sauvignon rdf:type owl:NamedIndividual ,
+                                      :NA_wine ;
+                             :IsMadeInDistrict :South_Eastern_Australia ;
+                             :hasCharacteristic :Good_freshness ,
+                                                :Light_fullness ;
+                             :hasSugarContent :Sweet ;
+                             :isMadeFromGrape :Cabernet_sauvignon ;
+                             :isMadeIn :Australia ;
+                             :isProducedBy :Edenvale ;
+                             :isSuitableWith :Cheese ,
+                                             :Red_meat ,
+                                             :White_meat ;
+                             :hasPrice "70.9"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Eiker_IPA
+:Eiker_IPA rdf:type owl:NamedIndividual ,
+                    :Beer ,
+                    :India_pale_ale ;
+           :IsMadeInDistrict :Buskerud ;
+           :hasCharacteristic :Medium_fullness ,
+                              :Very_fresh ;
+           :isMadeIn :Norge ;
+           :isProducedBy :Eiker_Ølfabrikk ;
+           :isSuitableWith :Aperitif ,
+                           :Shellfish ,
+                           :White_meat ;
+           :hasAlchoholPercentage "6.6"^^xsd:float ;
+           :hasPrice "63.5"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Eiker_Ølfabrikk
+:Eiker_Ølfabrikk rdf:type owl:NamedIndividual ,
+                          :Producer ;
+                 :isLocatedIn :Buskerud ;
+                 :isProducerOf :Eiker_IPA .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#England
 :England rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Estland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Estland
 :Estland rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Finland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Extra_bitter
+:Extra_bitter rdf:type owl:NamedIndividual ,
+                       :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#F.E_Trimbach
+:F.E_Trimbach rdf:type owl:NamedIndividual ,
+                       :Producer ;
+              :isLocatedIn :Alsace ;
+              :isProducerOf :Trimbach_Riesling .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Famiglia_Maronne
+:Famiglia_Maronne rdf:type owl:NamedIndividual ,
+                           :Producer ;
+                  :isLocatedIn :Asti ;
+                  :isProducerOf <http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Marrone_Solaris_Moscato_d´Asti> .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fanny_Sabre
+:Fanny_Sabre rdf:type owl:NamedIndividual ,
+                      :Producer ;
+             :isLocatedIn :Volnay ;
+             :isProducerOf :Fanny_Sabre_Volnay .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fanny_Sabre_Volnay
+:Fanny_Sabre_Volnay rdf:type owl:NamedIndividual ,
+                             :Redwine ,
+                             :Wine ;
+                    :IsMadeInDistrict :Burgund ;
+                    :hasCharacteristic :Good_astringement ,
+                                       :Good_freshness ,
+                                       :Good_fullness ;
+                    :hasSugarContent :Dry ;
+                    :hasTaste :Fresh_and_fruity ;
+                    :isMadeFromGrape :Pinot_Noir ;
+                    :isMadeIn :Frankrike ;
+                    :isMadeInSubdistrict :Volnay ;
+                    :isProducedBy :Fanny_Sabre ;
+                    :isSuitableWith :Lamb_and_sheep ,
+                                    :Small_game ,
+                                    :White_meat ;
+                    :hasAlchoholPercentage "12.5"^^xsd:float ;
+                    :hasPrice "549.9"^^xsd:float ;
+                    :hasYear "2017"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Finland
 :Finland rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Frankrike
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Firm_and_fruity
+:Firm_and_fruity rdf:type owl:NamedIndividual ,
+                          :Redwine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fish
+:Fish rdf:type owl:NamedIndividual ,
+               :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Frankrike
 :Frankrike rdf:type owl:NamedIndividual ,
-                    :Country .
+                    :Country ;
+           :hasDistrict :Bordeaux ,
+                        :Burgund .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Georgia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fresh
+:Fresh rdf:type owl:NamedIndividual ,
+                :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Fresh_and_fruity
+:Fresh_and_fruity rdf:type owl:NamedIndividual ,
+                           :Redwine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Full
+:Full rdf:type owl:NamedIndividual ,
+               :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Full_and_juicy
+:Full_and_juicy rdf:type owl:NamedIndividual ,
+                         :Redwine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Garganega
+:Garganega rdf:type owl:NamedIndividual ,
+                    :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Georgia
 :Georgia rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Guatemala
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Good_astringement
+:Good_astringement rdf:type owl:NamedIndividual ,
+                            :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Good_bitterness
+:Good_bitterness rdf:type owl:NamedIndividual ,
+                          :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Good_freshness
+:Good_freshness rdf:type owl:NamedIndividual ,
+                         :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Good_fullness
+:Good_fullness rdf:type owl:NamedIndividual ,
+                        :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Guatemala
 :Guatemala rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Guyana
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Gulfi
+:Gulfi rdf:type owl:NamedIndividual ,
+                :Producer ;
+       :isLocatedIn :Sicilia ;
+       :isProducerOf :Gulfi_Neroibleo .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Gulfi_Neroibleo
+:Gulfi_Neroibleo rdf:type owl:NamedIndividual ,
+                          :Redwine ,
+                          :Wine ;
+                 :IsMadeInDistrict :Sicilia ;
+                 :hasCharacteristic :Good_fullness ,
+                                    :Little_astringement ,
+                                    :Low_freshness ;
+                 :hasSugarContent :Dry ;
+                 :hasTaste :Developed_and_nuanced ;
+                 :isMadeFromGrape <http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nero_D'Avola> ;
+                 :isMadeInSubdistrict :Øvrige ;
+                 :isProducedBy :Gulfi ;
+                 :isSuitableWith :Red_meat ;
+                 :hasAlchoholPercentage "14.0"^^xsd:float ;
+                 :hasPrice "236.9"^^xsd:float ;
+                 :hasYear "2009"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Guyana
 :Guyana rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Haiti
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Haiti
 :Haiti rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Hellas
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Hautes-Côtes_de_Beaune
+:Hautes-Côtes_de_Beaune rdf:type owl:NamedIndividual ,
+                                 :Subdistrict ;
+                        :isSubdistrictOf :Burgund .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Hellas
 :Hellas rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#India
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#High_astringement
+:High_astringement rdf:type owl:NamedIndividual ,
+                            :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#High_sweetness
+:High_sweetness rdf:type owl:NamedIndividual ,
+                         :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#India
 :India rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Irland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Irland
 :Irland rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Island
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Island
 :Island rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Israel
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Israel
 :Israel rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Italia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Italia
 :Italia rdf:type owl:NamedIndividual ,
-                 :Country .
+                 :Country ;
+        :hasDistrict :Campania ,
+                     :Piemonte ,
+                     :Veneto .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Jamaica
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Jamaica
 :Jamaica rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Japan
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Japan
 :Japan rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Jura
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Juicy_and_fresh
+:Juicy_and_fresh rdf:type owl:NamedIndividual ,
+                          :Whitewine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Jura
 :Jura rdf:type owl:NamedIndividual ,
                :District ;
       :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kina
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Kina
 :Kina rdf:type owl:NamedIndividual ,
                :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Korsika
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Korsika
 :Korsika rdf:type owl:NamedIndividual ,
                   :District ;
          :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Kroatia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Kroatia
 :Kroatia rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Languedoc_Roussillon
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Lamb_and_sheep
+:Lamb_and_sheep rdf:type owl:NamedIndividual ,
+                         :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Languedoc_Roussillon
 :Languedoc_Roussillon rdf:type owl:NamedIndividual ,
                                :District ;
                       :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Latvia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Latvia
 :Latvia rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Libanon
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Libanon
 :Libanon rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Litauen
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#LiefMans_Duvel_Moortgat
+:LiefMans_Duvel_Moortgat rdf:type owl:NamedIndividual ,
+                                  :Producer ;
+                         :isLocatedIn :Belgia ;
+                         :isProducerOf :Liefmans_Goudenband .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Liefmans_Goudenband
+:Liefmans_Goudenband rdf:type owl:NamedIndividual ,
+                              :Beer ,
+                              :Sour_beer ;
+                     :isMadeIn :Belgia ;
+                     :hasAlchoholPercentage "8.0"^^xsd:float ;
+                     :hasPrice "59.5"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Light_and_fresh
+:Light_and_fresh rdf:type owl:NamedIndividual ,
+                          :Whitewine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Light_fullness
+:Light_fullness rdf:type owl:NamedIndividual ,
+                         :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Litauen
 :Litauen rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Loire
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Little_astringement
+:Little_astringement rdf:type owl:NamedIndividual ,
+                              :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Little_sweetness
+:Little_sweetness rdf:type owl:NamedIndividual ,
+                           :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Loire
 :Loire rdf:type owl:NamedIndividual ,
                 :District ;
        :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Luxemburg
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Low_bitterness
+:Low_bitterness rdf:type owl:NamedIndividual ,
+                         :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Low_freshness
+:Low_freshness rdf:type owl:NamedIndividual ,
+                        :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Luxemburg
 :Luxemburg rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Makedonia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Mack_Freeze
+:Mack_Freeze rdf:type owl:NamedIndividual ,
+                      :NA_Beer ;
+             :IsMadeInDistrict :Troms ;
+             :hasCharacteristic :Light_fullness ,
+                                :Low_freshness ;
+             :isMadeIn :Norge ;
+             :isProducedBy :Macks_Ølbryggeri ;
+             :isSuitableWith :Fish ,
+                             :Pork ,
+                             :White_meat ;
+             :hasPrice "19.9"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Macks_Ølbryggeri
+:Macks_Ølbryggeri rdf:type owl:NamedIndividual ,
+                           :Producer ;
+                  :isLocatedIn :Troms ;
+                  :isProducerOf :Mack_Freeze .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Makedonia
 :Makedonia rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Marokko
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Marokko
 :Marokko rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Martinique
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Martinique
 :Martinique rdf:type owl:NamedIndividual ,
                      :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Mauritius
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Mastroberardino
+:Mastroberardino rdf:type owl:NamedIndividual ,
+                          :Producer ;
+                 :isLocatedIn :Taurasi ;
+                 :isProducerOf :Radici_Taurasi_Riserva .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Matrot
+:Matrot rdf:type owl:NamedIndividual ,
+                 :Producer ;
+        :isLocatedIn :Burgund ;
+        :isProducerOf :Matrot_Bourgogne_Pinot_Noir .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Matrot_Bourgogne_Pinot_Noir
+:Matrot_Bourgogne_Pinot_Noir rdf:type owl:NamedIndividual ,
+                                      :Redwine ,
+                                      :Wine ;
+                             :IsMadeInDistrict :Burgund ;
+                             :hasCharacteristic :Fresh ,
+                                                :Full ,
+                                                :Medium_astringement ;
+                             :hasSugarContent :Dry ;
+                             :hasTaste :Fresh_and_fruity ;
+                             :isMadeFromGrape :Pinot_Noir ;
+                             :isMadeIn :Frankrike ;
+                             :isMadeInSubdistrict :Bourgogne ;
+                             :isProducedBy :Matrot ;
+                             :isSuitableWith :White_meat ;
+                             :hasAlchoholPercentage "12.0"^^xsd:float ;
+                             :hasPrice "259.9"^^xsd:float ;
+                             :hasYear "2016"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Mauritius
 :Mauritius rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Mexico
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Medium_astringement
+:Medium_astringement rdf:type owl:NamedIndividual ,
+                              :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Medium_bitterness
+:Medium_bitterness rdf:type owl:NamedIndividual ,
+                            :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Medium_freshness
+:Medium_freshness rdf:type owl:NamedIndividual ,
+                           :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Medium_fullness
+:Medium_fullness rdf:type owl:NamedIndividual ,
+                          :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Medium_sweetness
+:Medium_sweetness rdf:type owl:NamedIndividual ,
+                           :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Merlot
+:Merlot rdf:type owl:NamedIndividual ,
+                 :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Mexico
 :Mexico rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Moldova
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Moldova
 :Moldova rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Méditerranée
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Moscato
+:Moscato rdf:type owl:NamedIndividual ,
+                  :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Méditerranée
 :Méditerranée rdf:type owl:NamedIndividual ,
                        :District ;
               :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nederland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nederland
 :Nederland rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#New_Zealand
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#New_Zealand
 :New_Zealand rdf:type owl:NamedIndividual ,
                       :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nicaragua
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nicaragua
 :Nicaragua rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Nord_Irland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nord_Irland
 :Nord_Irland rdf:type owl:NamedIndividual ,
                       :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Norge
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Norge
 :Norge rdf:type owl:NamedIndividual ,
-                :Country .
+                :Country ;
+       :hasDistrict :Akershus ,
+                    :Buskerud ,
+                    :Sør_Trøndelag ,
+                    :Troms .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Normandie
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Normandie
 :Normandie rdf:type owl:NamedIndividual ,
                     :District ;
            :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Panama
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Off_dry
+:Off_dry rdf:type owl:NamedIndividual ,
+                  :Sugar_content .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Panama
 :Panama rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Paraguay
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Paraguay
 :Paraguay rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Peru
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Peru
 :Peru rdf:type owl:NamedIndividual ,
                :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Polen
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Piemonte
+:Piemonte rdf:type owl:NamedIndividual ,
+                   :District ;
+          :hasSubdistrict :Asti ;
+          :isDistrictOf :Italia .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Pinot_Noir
+:Pinot_Noir rdf:type owl:NamedIndividual ,
+                     :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Polen
 :Polen rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Portugal
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Pork
+:Pork rdf:type owl:NamedIndividual ,
+               :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Portugal
 :Portugal rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Provence
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Provence
 :Provence rdf:type owl:NamedIndividual ,
                    :District ;
           :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Puerto_Rico
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Puerto_Rico
 :Puerto_Rico rdf:type owl:NamedIndividual ,
                       :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rhône_Nord
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Radici_Taurasi_Riserva
+:Radici_Taurasi_Riserva rdf:type owl:NamedIndividual ,
+                                 :Redwine ,
+                                 :Wine ;
+                        :IsMadeInDistrict :Campania ;
+                        :hasCharacteristic :Astringement ,
+                                           :Full ;
+                        :hasSugarContent :Dry ;
+                        :hasTaste :Developed_and_nuanced ;
+                        :isMadeFromGrape :Aglianico ;
+                        :isMadeIn :Italia ;
+                        :isMadeInSubdistrict :Taurasi ;
+                        :isProducedBy :Mastroberardino ;
+                        :isSuitableWith :Big_game ,
+                                        :Lamb_and_sheep ,
+                                        :Red_meat ;
+                        :hasAlchoholPercentage "13.5"^^xsd:float ;
+                        :hasPrice "459.9"^^xsd:float ;
+                        :hasYear "2012"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Recioto_di_Valpolicella
+:Recioto_di_Valpolicella rdf:type owl:NamedIndividual ,
+                                  :Subdistrict ;
+                         :hasProducer :Tezza_Flavio ;
+                         :isSubdistrictOf :Veneto .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Red_meat
+:Red_meat rdf:type owl:NamedIndividual ,
+                   :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Rhône_Nord
 :Rhône_Nord rdf:type owl:NamedIndividual ,
                      :District ;
             :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Rhône_Sør
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Rhône_Sør
 :Rhône_Sør rdf:type owl:NamedIndividual ,
                     :District ;
            :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Romania
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Riesling
+:Riesling rdf:type owl:NamedIndividual ,
+                   :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Romania
 :Romania rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Russland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Rondinella
+:Rondinella rdf:type owl:NamedIndividual ,
+                     :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Russland
 :Russland rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Savoie
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Savoie
 :Savoie rdf:type owl:NamedIndividual ,
                  :District ;
         :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Skottland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Shellfish
+:Shellfish rdf:type owl:NamedIndividual ,
+                    :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sicilia
+:Sicilia rdf:type owl:NamedIndividual ,
+                  :District ;
+         :isDistrictOf :Italia ;
+         :isLocatedIn :Italia .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Skottland
 :Skottland rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Slovakia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Slovakia
 :Slovakia rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Slovenia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Slovenia
 :Slovenia rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Spania
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Small_game
+:Small_game rdf:type owl:NamedIndividual ,
+                     :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#South_Eastern_Australia
+:South_Eastern_Australia rdf:type owl:NamedIndividual ,
+                                  :Subdistrict ;
+                         :hasProducer :Edenvale ;
+                         :isDistrictOf :Australia ;
+                         :isLocatedIn :Australia .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Spania
 :Spania rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Storbritannia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Spicy_and_sweet
+:Spicy_and_sweet rdf:type owl:NamedIndividual ,
+                          :Redwine_taste_categories .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Storbritannia
 :Storbritannia rdf:type owl:NamedIndividual ,
                         :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sveits
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sveits
 :Sveits rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sverige
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sverige
 :Sverige rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sør_Afrika
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sweet
+:Sweet rdf:type owl:NamedIndividual ,
+                :Sugar_content ,
+                :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sémillion
+:Sémillion rdf:type owl:NamedIndividual ,
+                    :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sør_Afrika
 :Sør_Afrika rdf:type owl:NamedIndividual ,
                      :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sør_Korea
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sør_Korea
 :Sør_Korea rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Sørvest
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sør_Trøndelag
+:Sør_Trøndelag rdf:type owl:NamedIndividual ,
+                        :District ;
+               :hasProducer :Austmann_Bryggeri ;
+               :isDistrictOf :Norge ;
+               :isLocatedIn :Norge .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Sørvest
 :Sørvest rdf:type owl:NamedIndividual ,
                   :District ;
          :isDistrictOf :Frankrike .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Taiwan
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Taiwan
 :Taiwan rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Thailand
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Taurasi
+:Taurasi rdf:type owl:NamedIndividual ,
+                  :Subdistrict ;
+         :hasProducer :Mastroberardino ;
+         :isSubdistrictOf :Campania .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tezza_Flavio
+:Tezza_Flavio rdf:type owl:NamedIndividual ,
+                       :Producer ;
+              :isLocatedIn :Recioto_di_Valpolicella ;
+              :isProducerOf :Tezza_Recioto_della_Valpolicella .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tezza_Recioto_della_Valpolicella
+:Tezza_Recioto_della_Valpolicella rdf:type owl:NamedIndividual ,
+                                           :Redwine ,
+                                           :Wine ;
+                                  :IsMadeInDistrict :Veneto ;
+                                  :hasCharacteristic :Good_fullness ,
+                                                     :Medium_astringement ,
+                                                     :Medium_freshness ;
+                                  :hasSugarContent :Very_sweet ;
+                                  :isMadeFromGrape :Corvina ,
+                                                   :Corvinone ,
+                                                   :Rondinella ;
+                                  :isMadeIn :Italia ;
+                                  :isMadeInSubdistrict :Recioto_di_Valpolicella ;
+                                  :isProducedBy :Tezza_Flavio ;
+                                  :hasAlchoholPercentage "13.5"^^xsd:float ;
+                                  :hasPrice "269.9"^^xsd:float ;
+                                  :hasYear "2009"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Thailand
 :Thailand rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Trinidad_Tobago
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Trimbach_Riesling
+:Trimbach_Riesling rdf:type owl:NamedIndividual ,
+                            :Whitewine ,
+                            :Wine ;
+                   :IsMadeInDistrict :Alsace ;
+                   :hasCharacteristic :Dry ,
+                                      :Fresh ,
+                                      :Good_fullness ;
+                   :hasSugarContent :Dry ;
+                   :hasTaste :Light_and_fresh ;
+                   :isMadeFromGrape :Riesling ;
+                   :isMadeInSubdistrict :Øvrige ;
+                   :isProducedBy :F.E_Trimbach ;
+                   :isSuitableWith :Fish ,
+                                   :Shellfish ,
+                                   :White_meat ;
+                   :hasAlchoholPercentage "12.5"^^xsd:float ;
+                   :hasPrice "109.9"^^xsd:float ;
+                   :hasYear "2016.0"^^xsd:float .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Trinidad_Tobago
 :Trinidad_Tobago rdf:type owl:NamedIndividual ,
                           :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tsjekkia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Troms
+:Troms rdf:type owl:NamedIndividual ,
+                :District ;
+       :hasProducer :Macks_Ølbryggeri ;
+       :isLocatedIn :Norge .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tsjekkia
 :Tsjekkia rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tyrkia
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tyrkia
 :Tyrkia rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Tyskland
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Tyskland
 :Tyskland rdf:type owl:NamedIndividual ,
                    :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#USA
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#USA
 :USA rdf:type owl:NamedIndividual ,
               :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Ukraina
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Ukraina
 :Ukraina rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Ungarn
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Ungarn
 :Ungarn rdf:type owl:NamedIndividual ,
                  :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Unknown_country
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Unknown_country
 :Unknown_country rdf:type owl:NamedIndividual ,
                           :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Uruguay
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Uruguay
 :Uruguay rdf:type owl:NamedIndividual ,
                   :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Venezuela
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Veneto
+:Veneto rdf:type owl:NamedIndividual ,
+                 :District ;
+        :hasSubdistrict :Recioto_di_Valpolicella ;
+        :isDistrictOf :Italia ;
+        :isLocatedIn :Italia .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Venezuela
 :Venezuela rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Wales
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_bitter
+:Very_bitter rdf:type owl:NamedIndividual ,
+                      :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_fresh
+:Very_fresh rdf:type owl:NamedIndividual ,
+                     :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_high_fullness
+:Very_high_fullness rdf:type owl:NamedIndividual ,
+                             :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_high_sweetness
+:Very_high_sweetness rdf:type owl:NamedIndividual ,
+                              :Sweetness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_light_fullness
+:Very_light_fullness rdf:type owl:NamedIndividual ,
+                              :Fullness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_little_astringement
+:Very_little_astringement rdf:type owl:NamedIndividual ,
+                                   :Tannins .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_low_bitterness
+:Very_low_bitterness rdf:type owl:NamedIndividual ,
+                              :Bitterness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_low_freshness
+:Very_low_freshness rdf:type owl:NamedIndividual ,
+                             :Freshness .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Very_sweet
+:Very_sweet rdf:type owl:NamedIndividual ,
+                     :Sugar_content .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Volnay
+:Volnay rdf:type owl:NamedIndividual ,
+                 :Subdistrict ;
+        :hasProducer :Fanny_Sabre ;
+        :isSubdistrictOf :Burgund .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Wales
 :Wales rdf:type owl:NamedIndividual ,
                 :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#districts_franc
-:districts_franc rdf:type owl:NamedIndividual ,
-                          :District ;
-                 :isDistrictOf :Frankrike .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Wettre_Baltic_Porter
+:Wettre_Baltic_Porter rdf:type owl:NamedIndividual ,
+                               :Beer ,
+                               :Porter_and_stout ;
+                      :IsMadeInDistrict :Akershus ;
+                      :hasCharacteristic :Full ,
+                                         :Good_bitterness ,
+                                         :Low_freshness ;
+                      :isMadeIn :Norge ;
+                      :isProducedBy :Wettre_bryggeri ;
+                      :isSuitableWith :Aperitif ,
+                                      :Cheese ,
+                                      :Dessert ;
+                      :hasAlchoholPercentage "8.0"^^xsd:float ;
+                      :hasPrice "86.9"^^xsd:float .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#districts_france
-:districts_france rdf:type owl:NamedIndividual ,
-                           :District ;
-                  :isDistrictOf :Frankrike .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Wettre_bryggeri
+:Wettre_bryggeri rdf:type owl:NamedIndividual ,
+                          :Producer ;
+                 :isLocatedIn :Akershus ;
+                 :isProducerOf :Wettre_Baltic_Porter .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Østerrike
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#White_meat
+:White_meat rdf:type owl:NamedIndividual ,
+                     :Suitable_food .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Østerrike
 :Østerrike rdf:type owl:NamedIndividual ,
                     :Country .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#Øvrige
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Øvrige
 :Øvrige rdf:type owl:NamedIndividual ,
-                 :Country ,
-                 :District ;
-        :isDistrictOf :Frankrike .
+                 :Subdistrict .
 
 
-###  http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis
-<http://www.semanticweb.org/erlend/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis> rdf:type owl:NamedIndividual ,
-                                                                                                    :Country .
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Marrone_Solaris_Moscato_d´Asti
+<http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Marrone_Solaris_Moscato_d´Asti> rdf:type owl:NamedIndividual ,
+                                                                                                             :Whitewine ,
+                                                                                                             :Wine ;
+                                                                                                    :IsMadeInDistrict :Piemonte ;
+                                                                                                    :hasCharacteristic :Good_freshness ,
+                                                                                                                       :Good_fullness ,
+                                                                                                                       :Little_sweetness ;
+                                                                                                    :hasSugarContent :Off_dry ;
+                                                                                                    :hasTaste :Bold_and_floral ;
+                                                                                                    :isMadeFromGrape :Moscato ;
+                                                                                                    :isMadeIn :Italia ;
+                                                                                                    :isMadeInSubdistrict :Asti ;
+                                                                                                    :isProducedBy :Famiglia_Maronne ;
+                                                                                                    :isSuitableWith :Aperitif ,
+                                                                                                                    :Cheese ,
+                                                                                                                    :Dessert ;
+                                                                                                    :hasAlchoholPercentage "5.0"^^xsd:float ;
+                                                                                                    :hasPrice "159.9"^^xsd:float ;
+                                                                                                    :hasYear "2017"^^xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nero_D'Avola
+<http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#Nero_D'Avola> rdf:type owl:NamedIndividual ,
+                                                                                           :WineGrape .
+
+
+###  http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis
+<http://www.semanticweb.org/ontologies/2019/9/vinmonopolet-ontology#St_Chr_&_Nevis> rdf:type owl:NamedIndividual ,
+                                                                                             :Country .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
